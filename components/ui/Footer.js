@@ -41,6 +41,12 @@ export const Footer = () => {
           <li>
             <a href="https://google.com">On the streets at night</a>
           </li>
+          {/*added a new list item for LINKEDIN*/}
+          <li>
+            <a href="www.linkedin.com">Linkedin</a>
+          </li>
+          {/*The end of the adding*/}
+          
           {/* TASK - React 1 week 2 */}
           {/* Create a <SocialMediaItem /> component and replace all of the list items! */}
           {/* it should accept the following props */}
