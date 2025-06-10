@@ -6,8 +6,34 @@
 
 .logo{
   display: flex;
-  margin: 0 auto;
   padding-top: 50px;
-  width: 250px;
+  width: 150px;
+  aspect-ratio: 3/2;
+}
 
+.queens{
+  height: 100px;
+  width: 150px;
+}
+
+.parag{
+  display: flex;
+  margin: 30px 70px;
+  font-size: 20px;
+  text-align: justify;
+}
+
+.img{
+  width: 500px;
+}
+
+.images{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 50px;
 }
