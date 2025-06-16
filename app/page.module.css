@@ -48,3 +48,8 @@ p.heroJumbo {
   font-weight: 200;
   letter-spacing: 4px;
 }
+
+.h22{
+  display: flex;
+  margin-right: 20px;
+}
