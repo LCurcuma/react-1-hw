@@ -46,3 +46,8 @@
 .footerList li {
   padding-block: var(--spacing-04);
 }
+
+.logo {
+  height: 50px;
+  margin: 0 5px;
+}
