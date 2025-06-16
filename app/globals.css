@@ -103,13 +103,24 @@ a {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  margin-block-end: var(--spacing-08);
+h1{
+  margin-block-end: var(--spacing-64);
   color: var(--primary-text-color);
+  text-align: center;
+  margin-top: var(--spacing-64);
+  font-size: 50px;
+}
+
+h2, h3, h4, h5, h6 {
+  margin-block-end: var(--spacing-40);
+  color: var(--primary-text-color);
+  text-align: center;
+  margin-top: var(--spacing-40);
+  font-size: 30px;
 }
 
 p, b, i {
-  margin-block-end: var(--spacing-08);
+  margin-block-end: var(--spacing-20);
 }
 
 button {
@@ -133,12 +144,14 @@ button {
   margin: auto;
   padding-block-start: var(--header-height);
   color: #fff;
+  border-radius: 50px;
 }
 
 
 .card {
   position: relative;
   padding: var(--spacing-12);
+  border-radius: 50px;
   margin: var(--spacing-16);
 }
 
@@ -150,6 +163,7 @@ button {
   bottom: 0;
   left: 0;
   right: 0;
+  border-radius: 50px;
   backdrop-filter: blur(10px);
 }
 
@@ -214,4 +228,10 @@ button {
 
 .fullBGpicture > main {
   overflow: auto;
+}
+
+img{
+  display: flex;
+  margin: 0 auto;
+  width: 50%;
 }
