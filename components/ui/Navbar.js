@@ -37,12 +37,15 @@ export const Navbar = () => {
           {/* title, link, isActive  */}
       
         {/*done*/}
-          <NavItem title="01 ABOUT US" link={navbarItems[0].link} isActive={navbarItems[0].link === currentPath} />
+          {/* <NavItem title="01 ABOUT US" link={navbarItems[0].link} isActive={navbarItems[0].link === currentPath} />
           <NavItem title="02 DESTINATION" link={navbarItems[1].link} isActive={navbarItems[1].link === currentPath} />
-          <NavItem title="03 NASA COLLABORATION" link={navbarItems[2].link} isActive={navbarItems[2].link === currentPath} />
+          <NavItem title="03 NASA COLLABORATION" link={navbarItems[2].link} isActive={navbarItems[2].link === currentPath} /> */}
           
           {/* TASK - React 1 week 3 */}
           {/* replace repeating content by using navbarItems.map(() => <NavLink />) */}
+            {navbarItems?.map((item, index) => (
+              <NavItem key={index} title={`0${index+1} ${item?.title}`} link={item?.link} isActive={item?.link === currentPath}/>
+            ))}
         </ul>
       </nav>
     </header>
