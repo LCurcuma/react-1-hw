@@ -1,11 +1,12 @@
+import styles from '@/components/destination/destination.module.css';
 // TASK - React 1 week 2
 // Move this to its own file
 
-const PlanetWishlistItem = ({
+export default function PlanetWishlistItem({
   name,
   onRemove,
   thumbnail,
-}) => {
+}){
   return (
     <div className={styles.wishlistItem}>
       <img className={styles.wishlistItemThumbnail} src={thumbnail} alt="" />
@@ -14,5 +15,3 @@ const PlanetWishlistItem = ({
     </div>
   );
 };
-
-export default PlanetWishlistItem;

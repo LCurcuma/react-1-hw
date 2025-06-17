@@ -2,10 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import styles from './page.module.css';
+import RoverPhoto from './RoverPhoto.js';
 
 // Read "/app/nasa_collaboration/README.md" for more info about the API_KEY
 // You need a proper API_KEY for the requests to work
-const API_KEY = 'API_KEY';
+const API_KEY = 'hG5z189E8FCndwgOkT60BNm4dITxswfndiXXgZYU';
 
 const NASA_URLs = {
   astronomyPicOfTheDay: `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`,
@@ -19,14 +20,22 @@ export const NasaCollaboration = () => {
   useEffect(() => {
     const fetchRoverPhotos = async () => {
       const roverPhotoResponse = await fetch(NASA_URLs.marsRoverPhoto).then(response => response.json());
-      setRoverPhoto(roverPhotoResponse);
+      setRoverPhoto(roverPhotoResponse.photos);
     };
 
     fetchRoverPhotos();
 
     // TASK - React 1 week 3 
     // fetch the extra data for NASA_URLs.astronomyPicOfTheDay and save it to the dailyImg state variable
+      const fetchExtraData = async () => {
+        const extra = await fetch(NASA_URLs.astronomyPicOfTheDay).then(response => response.json());
+        setDailyImg(extra);
+      }
+
+      fetchExtraData();
   }, []);
+
+  console.log(roverPhoto);
 
   return (
     <div className="fullBGpicture">
@@ -37,14 +46,16 @@ export const NasaCollaboration = () => {
           {/* TASK - React 1 week 3 */}
           {/* After fetching data from the NASA_URLs.astronomyPicOfTheDay url, display the returned data here */}
           {/* You should display the title, explanation, and the image using the url from the response */}
-          {/* <img src={dailyImg.url}> */}
+          <h3>{dailyImg.title}</h3>
+        <img src={dailyImg.url} title={dailyImg.title}/>
+        <p>{dailyImg.explanation}</p>
         </section>
         <section className="card">
           <h2>Rover Photos</h2>
           {/* TASK - React 1 week 3 */}
           {/* Iteratate over the roverPhoto?.photos array and display all the pictures! */}
           {
-            roverPhoto?.photos?.length ? (
+            roverPhoto?.length ? (
               <>
                 {/* TASK - React 1 week 3 */}
                 {/* Create a react component for the <RoverPhoto />, which should accept the following props */}
@@ -56,8 +67,12 @@ export const NasaCollaboration = () => {
                 {/* If you don't know how the data looks like you can: */}
                 {/* 1. use console.log() to write the data to the console */}
                 {/* 2. use the network tab in the developer tab - https://developer.chrome.com/docs/devtools/network */}
-                <p>Date {roverPhoto.photos[0]?.earth_date}</p>
-                <img className={styles.nasaPicOfTheDayImg} src={roverPhoto.photos[0]?.img_src} alt={dailyImg.title} />
+                {roverPhoto?.map((item, index) =>
+                (
+                  <RoverPhoto key={index} src={item?.img_src} date={item?.earth_date} roverName={item?.rover.name}/>
+                ))}
+                <p>Date {roverPhoto[0]?.earth_date}</p>
+                <img className={styles.nasaPicOfTheDayImg} src={roverPhoto[0]?.img_src} alt={dailyImg.title} />
               </>
               ) : (
                 <p>Loading rover photos...</p>
@@ -68,5 +83,6 @@ export const NasaCollaboration = () => {
     </div>
   );
 }
+
 
 export default NasaCollaboration;
